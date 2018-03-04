@@ -51,6 +51,10 @@ table {
 
 /* styles */
 
+body {
+  min-height: 100vh;
+}
+
 .header { 
   grid-area: header;
   background-color: #1496CC;
@@ -71,8 +75,13 @@ table {
 }
 .footer { 
   grid-area: footer;
-  background-color: #CC1434;
+  background-color: #216E5B;
   min-height: 10vh;
+}
+
+.wrapper {
+  grid-area: wrapper;
+  background-color: #eee;
 }
 
 .card {
@@ -90,15 +99,20 @@ table {
 }
 
 @supports (display: grid) {
-  @media (min-width: 1000px) {
-    body {
-      min-height: 100vh;
+  @media (min-width: 768px) {
+    .wrapper {
       display: grid;
       grid-gap: 10px;
       grid-template-areas: 
-        "header header header header"
-        "main main main sidebar"
-        "footer footer footer footer";
+        "main main main sidebar";
+    }
+    body {
+      display: grid;
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-areas: 
+      "header header header"
+      ". wrapper ."
+      "footer footer footer";
     }
   }
 }
