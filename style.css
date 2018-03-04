@@ -51,30 +51,54 @@ table {
 
 /* styles */
 
-body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  grid-template-areas: 
-    "header header header"
-    "main main sidebar"
-    "footer footer footer";
-}
-
 .header { 
   grid-area: header;
   background-color: #1496CC;
+  min-height: 20vh;
 }
+
 .main { 
   grid-area: main;
   background-color: #00FFC0;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar { 
   grid-area: sidebar;
   background-color: #FF5240;
+  display: flex;
+  flex-direction: column;
 }
 .footer { 
   grid-area: footer;
   background-color: #CC1434;
+  min-height: 10vh;
+}
+
+.card {
+  background-color: #fff;
+  min-height: 5vh;
+  margin: 10px;
+  flex-grow: 1;
+}
+
+.section {
+  background-color: #fff;
+  min-height: 20vh;
+  margin: 10px;
+  flex-grow: 1;
+}
+
+@supports (display: grid) {
+  @media (min-width: 1000px) {
+    body {
+      min-height: 100vh;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-areas: 
+        "header header header header"
+        "main main main sidebar"
+        "footer footer footer footer";
+    }
+  }
 }
